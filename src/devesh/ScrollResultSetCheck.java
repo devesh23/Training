@@ -17,12 +17,14 @@ public class ScrollResultSetCheck {
 				("jdbc:oracle:thin:@localhost:1521:orcl","sys as sysdba","root");
 		System.out.println("Connected");
 		Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-		String s = "select * from emp";
-		ResultSet res = st.executeQuery(s);
-		res.afterLast();
-		while(res.previous()){
-			System.out.println(res.getString(1)+"\t"+res.getString(2));
-		}
+		String s = "select ID,NAME from emp";
+		
+		
+		st.addBatch("insert into emp(id,name) values(18,'ja')");
+		st.addBatch("insert into emp(id,name) values(19,'jy')");
+		st.addBatch("insert into emp(id,name) values(20,'ay')");
+		st.executeBatch();
+		
 	}
 	catch(Exception e){
 		e.printStackTrace();
