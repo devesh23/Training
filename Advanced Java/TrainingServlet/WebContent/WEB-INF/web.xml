@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>TrainingServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>FormEntry.html</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!--  For connecting to database -->
+  
+  
+  <servlet> 
+  	<servlet-name>Insert</servlet-name>
+  	<servlet-class>web.Four</servlet-class>
+  	<init-param>
+  		<param-name>driver</param-name>
+  		<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>url</param-name>
+  		<param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>username</param-name>
+  		<param-value>sys as sysdba</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>password</param-name>
+  		<param-value>root</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Insert</servlet-name>
+  	<url-pattern>/Four</url-pattern>
+  </servlet-mapping>
+ <!--  For Servlet to Servlet Communication -->
+ 
+ <servlet>
+  	<servlet-name>Five</servlet-name>
+  	<servlet-class>web.five</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Five</servlet-name>
+  	<url-pattern>/five</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+  	<servlet-name>Six</servlet-name>
+  	<servlet-class>web.six</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Six</servlet-name>
+  	<url-pattern>/six</url-pattern>
+  </servlet-mapping>
+ <!-- For Different Servlet classes! -->
+  
+  <servlet>
+  	<servlet-name>Hello</servlet-name>
+  	<servlet-class>web.First</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Hello</servlet-name>
+  	<url-pattern>/Hello</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>PassData</servlet-name>
+  	<servlet-class>web.Second</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PassData</servlet-name>
+  	<url-pattern>/Second</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>PassParameter</servlet-name>
+  	<servlet-class>web.Third</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PassParameter</servlet-name>
+  	<url-pattern>/Third</url-pattern>
+  </servlet-mapping>
+</web-app>

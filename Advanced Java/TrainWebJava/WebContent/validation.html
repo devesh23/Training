@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function f(){
+		var n = document.ValidateForm.FirstName;
+		if((n.value==null)||(n.value=="")){
+			alert("Please enter the name");
+			n.focus();
+			return false;
+		}
+		alert("Welcome " + n.value);
+		return true;
+}
+</script>
+</head>
+<body>
+<form name="ValidateForm" onsubmit="return f()">
+	Enter your First name: <input type="text" name="FirstName"><br>
+	Enter your Last Name: <input type="text" name="LastName"><br>
+	Enter your Email-Id: <input type="text" name="EmailID"><br>
+	Enter your Phone No: <input type="text" name="PhoneNumber"><br>
+	<input type="submit" value="submit"></span>
+</form>
+</body>
+</html>
